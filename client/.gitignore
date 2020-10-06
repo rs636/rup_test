@@ -21,3 +21,13 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+#database
+/database.json
+{
+"host": ruptest2.cwvfnj1ysnei.us-east-2.rds.amazonaws.com,
+"user": ruptest2,
+"password": rlarla371,
+"port": "3306",
+"database": ruptest2
+}

@@ -1,10 +1,26 @@
-import React from 'react';
+import React,{Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
+class App extends Component{
+  // state={
+  //   rup_test:""
+  // }
+  // componentDidMount(){
+  //   this.callApi()
+  //     .then(res => this.setState({rup_test: res}))
+  //     .catch(err => console.log(err));
+  // }
+  // callApi = async()=>{
+  //   const response = await fetch('/api/hello');
+  //   const body = await response.json();
+  //   return body;
+  // }
+
+  render(){
+    const{classes} = this.props;
+    return(
+      <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -20,7 +36,8 @@ function App() {
         </a>
       </header>
     </div>
-  );
+    )
+  }
 }
 
 export default App;

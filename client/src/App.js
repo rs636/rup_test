@@ -1,42 +1,38 @@
 import React,{Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
 
 class App extends Component{
-  // state={
-  //   rup_test:""
-  // }
-  // componentDidMount(){
-  //   this.callApi()
-  //     .then(res => this.setState({rup_test: res}))
-  //     .catch(err => console.log(err));
-  // }
-  // callApi = async()=>{
-  //   const response = await fetch('/api/hello');
-  //   const body = await response.json();
-  //   return body;
-  // }
+  state={
+   data:""
+  }
 
+  getPost = async () => {
+    try {
+      const response = await axios.get('/api/userInfo');
+      this.setState({
+        data: response.data
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  componentDidMount(){
+    this.getPost();
+  }
+ 
   render(){
     const{classes} = this.props;
+    if (!this.state.data) {
+      return <div>로딩중...</div>;
+    }
+    const s = this.state.data;
     return(
-      <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.(rup_test)
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App">
+      <h1>{s.userName}</h1>
     </div>
-    )
+    );
   }
 }
 

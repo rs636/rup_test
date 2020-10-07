@@ -25,7 +25,7 @@ app.get('/api/userInfo', (req, res) => {
 //     { message: '중복가능' }
 // ]);
     connection.query(
-        'select * from userInfo',
+        'select * from userInfo where userName="김진수"',
         (err,rows,fields) =>{
             res.send(rows);
         }
